@@ -6,22 +6,15 @@
   border-radius: 6px;
   padding: 8px 0;
   position: relative;
-  position: relative;
   left: 4%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-2%,-50%);
   top: 50%;
   right: 4%;
-  max-width: 71%;
 
-
-
-
-  //  @include max-w($screen-md) {
-  //    margin-bottom: 57px;
-  //
-  //
-  //}
+    @include max-w($screen-md) {
+      max-width: 100%;
+  }
   @include min-w($screen-md) {
     margin-bottom: 57px;
     left: 50%;

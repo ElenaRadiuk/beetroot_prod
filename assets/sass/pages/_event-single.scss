@@ -1,0 +1,36 @@
+.product-list_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  @include min-w($screen-md) {
+    flex-wrap: nowrap;
+  }
+
+  .product-item {
+    margin: 20px;
+    @include min-w($screen-md) {
+      margin: 0 35px 25px 0;
+    }
+
+    .product {
+      @include max-w($screen-sm) {
+        width: 100%!important;
+      }
+    }
+  }
+}
+
+.page-main {
+  &.event {
+    margin: 25px 0;
+  }
+}
+
+.page-event__img {
+  max-height: 600px;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -5,7 +5,7 @@
 ?>
 
 <?php get_header(); ?>
-	<main id="main" class="page-main" role="main">
+	<main id="main" class="page-main home" role="main">
 
     <?php if ( have_posts() ) : ?>
       <?php while ( have_posts() ) : the_post(); ?>
@@ -13,8 +13,13 @@
         <section class="top-banner">
             <?php get_template_part( 'template-parts/content', 'top_banner' ); ?>
         </section>
+
         <section class="offer">
           <?php get_template_part( 'template-parts/content', 'offer' ); ?>
+        </section>
+
+        <section class="recent_products container">
+          <?php get_template_part( 'template-parts/content', 'recent_prod' ); ?>
         </section>
 
         <section class="map-and-order">

@@ -1,31 +1,63 @@
 .page-header_wrapper {
   background: #07141e;
-
   &.home {
-    background: transparent;
     @include min-w($screen-lg) {
-      .page-header {
-        position: absolute;
-      }
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: transparent;
     }
   }
-}
-
   .page-header {
     position: relative;
-    display: flex;
+
     background: transparent;
     align-items: center;
     height: 100%;
 
+    @include min-w(($screen-lg)+1) {
+      display: flex;
+    }
+
+    @include max-w($screen-lg) {
+      background-color: $text-color-main-dark;
+      flex-direction: column;
+    }
+    @include min-w($screen-lg) {
+      width: 100%;
+      max-width: $container-width;
+      justify-content: space-between;
+      margin: 0 auto;
+      //position: absolute;
+      z-index: 1;
+      max-height: 83px;
+      //left: 0;
+      //right: 0;
+    }
+
+
+    .main-nav {
+      @include max-w($screen-lg) {
+        min-height: 50px;
+        padding-bottom: 30px;
+        display: none;
+      }
+      &.show {
+        display: block;
+        height: auto;
+      }
+    }
     .main-nav__list {
       @include clearlist;
       text-align: center;
 
       li {
         display: block;
-        //margin-right: 61px;
         &.order-game {
+          margin-right: 0;
+          @include max-w($screen-md) {
+            margin-top: 25px;
+          }
           a {
             padding: 15px 50px;
             background-color: #00BC87;
@@ -43,34 +75,83 @@
             transition: all .3s ease-in-out;
           }
         }
+
+        @include max-w($screen-lg) {
+          padding-bottom: 10px;
+          margin-top: 10px;
+        }
         @include min-w($screen-md) {
           display: inline-block;
+          margin-right: 31px;
         }
-      }
-    }
-
-    @include max-w($screen-lg) {
-      background-color: $text-color-main-dark;
-      flex-direction: column;
-    }
-    @include min-w($screen-lg) {
-      width: 100%;
-      max-width: $container-width;
-      justify-content: space-between;
-      margin: 0 auto;
-      position: static;
-      z-index: 1;
-      max-height: 83px;
-      left: 0;
-      right: 0;
-
-      .main-nav__list {
-        li {
+        @include min-w($screen-xxl) {
           margin-right: 61px;
-          &.order-game {
-            margin-right: 0;
-          }
         }
+
       }
     }
+  }
+}
+
+ #hamburger-icon {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 36px;
+  top: 39px;
+  display: block;
+  margin: 0;
+
+  .line {
+    display: block;
+    background: $green-color;
+    width: 32px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    border-radius: 4px;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+
+    &.line-1 {
+      top: 0;
+    }
+
+    &.line-2 {
+      top: 55%;
+    }
+  }
+
+  &:hover {
+    .line-1 {
+      transform: translateY(-1px);
+      -webkit-transform: translateY(-1px);
+      -moz-transform: translateY(-1px);
+    }
+
+    .line-2 {
+      transform: translateY(1px);
+      -webkit-transform: translateY(1px);
+      -moz-transform: translateY(1px);
+    }
+  }
+
+  &.active {
+    .line-1 {
+      transform: translateY(8px) translateX(0) rotate(45deg);
+      -webkit-transform: translateY(8px) translateX(0) rotate(45deg);
+      -moz-transform: translateY(8px) translateX(0) rotate(45deg);
+    }
+
+    .line-2 {
+      transform: translateY(-8px) translateX(0) rotate(-47deg);
+      -webkit-transform: translateY(-8px) translateX(0) rotate(-47deg);
+      -moz-transform: translateY(-8px) translateX(0) rotate(-47deg);
+    }
+  }
+
+  @include min-w(993px) {
+    display: none;
+  }
 }

@@ -14,30 +14,30 @@
 global $EM_Event;
 /* @var $EM_Event EM_Event */
 
-echo 'nndfsndfjnfjkandfjandfjndsj njn111111111111111';
-echo '<div>';
-echo $EM_Event->output_single();
-echo '</div>';
-?>
-<div class="benefit-list">
-  <?php
-  $posts = get_field('prod');
+echo '<div class="event_manager container">';
+echo $EM_Event->output_single(); ?>
 
-  if( $posts ): ?>
-    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-      <?php setup_postdata($post); ?>
-      <div class="benefit-item">
-        fksdjfsjdflksj fjksdkjfskdjf kjksjf8789789787897874501022
+  <h3><?php the_title(); ?> (products for event): </h3>
+  <div class="product-list_wrapper">
 
-<!--        --><?php //echo do_action( 'woocommerce_single_product_summary' ); ?>
-        <?php var_dump( $post); ?>
-<!--        --><?php //echo do_shortcode('[product id="\$post\"]'); ?>
+    <?php
+    $posts = get_field('prod');
 
-<!--        --><?php //the_post_thumbnail(); ?>
-        <h3><?php the_title(); ?></h3>
-<!--        <p>--><?php //the_content(); ?><!--</p>-->
-      </div>
-    <?php endforeach; ?>
-    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-  <?php endif; ?>
-</div>
+    if( $posts ): ?>
+      <?php foreach( $posts as $post): ?>
+        <?php setup_postdata($post); ?>
+        <div class="product-item">
+
+<!--          --><?php //var_dump( $post); ?>
+
+          <?php $prod_id = $post->ID;
+          $string = 'columns="1"';
+
+          $product = do_shortcode( '[product id="'. $prod_id . ' " columns="1"]' );
+          echo $product;?>
+        </div>
+      <?php endforeach; ?>
+      <?php wp_reset_postdata();?>
+    <?php endif; ?>
+  </div>
+<?php echo '</div>'; ?>

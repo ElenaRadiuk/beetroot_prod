@@ -10,10 +10,7 @@
   }
 }
 
-
 .map-and-address_wrapper {
-    //display: flex;
-    //text-align: left;
     background-color: $footer-blue-lighter;
     width: 100%;
     position: relative;
@@ -23,7 +20,7 @@
       flex-direction: column;
       text-align: right;
       @include min-w($screen-xxl) {
-        margin-bottom: 77px;
+        margin-bottom: 37px;
         flex-direction: row;
         flex: 1;
         justify-content: flex-end;
@@ -31,13 +28,12 @@
     }
 
     .map-and-address {
-      //max-width: 870px;
       background-color: $footer-blue-lighter;
 
       width: 100%;
       @include min-w(($screen-xl)+1) {
-        position: absolute;
-        top: -165px;
+        position: relative;
+        top: -35px;
       }
     }
 
@@ -50,13 +46,14 @@
       color: #fff;
       max-width: 870px;
       width: auto;
-      margin: 60px 42px;
+      margin: 30px 42px;
       float: none;
       @include min-w($screen-md) {
         flex-direction: row;
         float: right;
         margin: 0;
         width: 100%;
+        padding: 0 25px;
       }
 
       .contacts_phone {
@@ -98,7 +95,7 @@
 
       .contacts_item {
         @include max-w($screen-md) {
-          margin-top: 52px;
+          margin-top: 12px;
         }
       }
     }
